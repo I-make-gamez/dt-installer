@@ -9,7 +9,7 @@ echo   /_____/ /_/    /___/_/ /_/____/\__/\__,_/_/_/\___/_/
 echo.
 echo ==============================================================
 echo.
-echo Dev Tools Installer - Version 1.0
+echo Dev Tools Installer - Version 1.1
 echo Made by NitTwit_   
 echo.               
 echo ==============================================================
@@ -76,7 +76,7 @@ winget install Microsoft.DotNet.SDK.6
 )
 
 REM Ask the user if they wish to install VSCode
-set /p "installVSCChoice=Do you want to install Visual Studio Code? (y/n)"
+set /p "installVSCChoice=Do you want to install Visual Studio Code? (y/n): "
 if /i "%installVSCChoice%"=="y" (
     echo Installing Visual Studio Code...
     echo.
