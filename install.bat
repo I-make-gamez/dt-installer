@@ -94,6 +94,25 @@ if /i "%installVSCChoice%"=="y" (
     echo.
 )
 
+REM Ask the user if they wish to install Docker Desktop
+set /p "dockerChoice=Do you want to install Docker Desktop? (y/n): "
+if /i "%dockerChoice%"=="y" (
+    echo Installing Docker Desktop...
+    echo.
+    winget install -e --id Docker.DockerDesktop
+    if %errorlevel% neq 0 (
+        echo Failed to install Docker Desktop.
+        echo.
+        exit /b 1
+    )
+
+    REM Display a completion message for VSCode installation
+    echo Docker Desktop installation completed successfully
+    echo.
+) else (
+    echo.
+)
+
 echo Press any key to exit...
 pause>nul
 exit /b 0
