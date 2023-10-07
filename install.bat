@@ -34,7 +34,6 @@ winget install OpenJS.NodeJS.LTS
   echo Node.js installation completed successfully.
   echo.
 ) else (
-  echo Node.js installation canceled.
   echo.
 )
 
@@ -54,7 +53,6 @@ if /i "%installGitChoice%"=="y" (
   echo Git installation completed successfully.
   echo.
 ) else (
-  echo Git installation canceled.
   echo.
 )
 
@@ -74,10 +72,29 @@ winget install Microsoft.DotNet.SDK.6
   echo .NET Framework installation completed successfully.
   echo.
 ) else (
-  echo .NET Framework installation canceled.
   echo.
 )
 
-pause
+REM Ask the user if they wish to install VSCode
+set /p "installVSCChoice=Do you want to install Visual Studio Code? (y/n)"
+if /i "%installVSCChoice%"=="y" (
+    echo Installing Visual Studio Code...
+    echo.
+    winget install -e --id Microsoft.VisualStudioCode
+    if %errorlevel% neq 0 (
+        echo Failed to install Visual Studio Code.
+        echo.
+        exit /b 1
+    )
+
+    REM Display a completeion message for VSCode installation
+    echo Visual Studio Code installation completed successfully
+    echo.
+) else (
+    echo.
+)
+
+echo Press any key to exit...
+pause>nul
 exit /b 0
 
