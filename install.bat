@@ -11,7 +11,7 @@ echo   /_____/ /_/    /___/_/ /_/____/\__/\__,_/_/_/\___/_/     [0m
 echo.
 echo [33m==============================================================[36m
 echo.
-echo Dev Tools Installer - Version 1.1
+echo Dev Tools Installer - Version 1.12
 echo Made by NitTwit_   
 echo.               
 echo [33m==============================================================[36m
@@ -27,90 +27,94 @@ if /i "%installNodeChoice%"=="y" (
 
 winget install OpenJS.NodeJS.LTS
   if %errorlevel% neq 0 (
+            echo.
     echo Failed to install Node.js.
     echo.
-    exit /b 1
-  )
-
-  REM Display a completion message for Node.js installation
-  echo Node.js installation completed successfully.
+  ) else (
+      REM Display a completion message for .NET Framework installation
+              echo.
+  echo Node.JS installation completed successfully.
   echo.
+  )
 ) else (
   echo.
 )
 
 REM Ask the user if they want to install Git
-set /p "installGitChoice=Do you want to install Git? (y/n): "
+set /p "installGitChoice=[36mDo you want to install Git? (y/n): "
 if /i "%installGitChoice%"=="y" (
-  echo Installing Git...
+  echo [36mInstalling Git...
   echo.
-  winget install --exact --id Git.Git
+winget install --id Git.Git 
   if %errorlevel% neq 0 (
+            echo.
     echo Failed to install Git.
     echo.
-    exit /b 1
-  )
-
-  REM Display a completion message for Git installation
+  ) else (
+    REM Display a completion message for Git installation
+            echo.
   echo Git installation completed successfully.
   echo.
+  )
 ) else (
   echo.
 )
 
 REM Ask the user if they want to install .NET Framework
-set /p "installDotNetChoice=Do you want to install the .NET Framework? (y/n): "
+set /p "installDotNetChoice=[36mDo you want to install the .NET Framework? (y/n): "
 if /i "%installDotNetChoice%"=="y" (
-  echo Installing .NET Framework...
+  echo [36mInstalling .NET Framework...
   echo.
 winget install Microsoft.DotNet.SDK.6
   if %errorlevel% neq 0 (
+            echo.
     echo Failed to install .NET Framework.
     echo.
-    exit /b 1
-  )
-
-  REM Display a completion message for .NET Framework installation
+  ) else (
+      REM Display a completion message for .NET Framework installation
+              echo.
   echo .NET Framework installation completed successfully.
   echo.
+  )
 ) else (
   echo.
 )
 
 REM Ask the user if they wish to install VSCode
-set /p "installVSCChoice=Do you want to install Visual Studio Code? (y/n): "
+set /p "installVSCChoice=[36mDo you want to install Visual Studio Code? (y/n): "
 if /i "%installVSCChoice%"=="y" (
-    echo Installing Visual Studio Code...
+    echo [36mInstalling Visual Studio Code...
     echo.
     winget install -e --id Microsoft.VisualStudioCode
     if %errorlevel% neq 0 (
+              echo.
         echo Failed to install Visual Studio Code.
         echo.
-        exit /b 1
-    )
-
-    REM Display a completeion message for VSCode installation
-    echo Visual Studio Code installation completed successfully
-    echo.
+    ) else (
+      REM Display a completion message for .NET Framework installation 
+              echo.   
+      echo Visual Studio Code installation completed successfully
+  )
 ) else (
     echo.
 )
 
 REM Ask the user if they wish to install Docker Desktop
-set /p "dockerChoice=Do you want to install Docker Desktop? (y/n): "
+set /p "dockerChoice=[36mDo you want to install Docker Desktop? (y/n): "
 if /i "%dockerChoice%"=="y" (
-    echo Installing Docker Desktop...
+    echo [36mInstalling Docker Desktop...
     echo.
     winget install -e --id Docker.DockerDesktop
     if %errorlevel% neq 0 (
+              echo.
         echo Failed to install Docker Desktop.
         echo.
-        exit /b 1
-    )
-
-    REM Display a completion message for VSCode installation
-    echo Docker Desktop installation completed successfully
-    echo.
+    ) else (
+      REM Display a completion message for .NET Framework installation
+              echo.
+  echo Docker Desktop installation completed successfully.
+  echo.
+  )
 ) else (
     echo.
 )
