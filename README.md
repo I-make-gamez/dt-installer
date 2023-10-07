@@ -1,6 +1,6 @@
 # DT-Installer
 
-DT Installer is a developer tool installer that can install Node.JS, Git, DotNET, VS Code
+DT Installer is a developer tool installer that can install Node.JS, Git, DotNET, VS Code, and Docker Desktop
 ## Installation
 
 Use curl to run DT Installer
