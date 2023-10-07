@@ -115,8 +115,8 @@ if /i "%dockerChoice%"=="y" (
     echo.
 )
 
-echo [33m==============================================================[92m[1m[4m
+echo [33m==============================================================[92m[1m
 echo.
-echo Press any key to exit...
+echo Press any key to exit... [0m
 pause>nul
 exit /b 0
