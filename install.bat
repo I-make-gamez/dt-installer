@@ -11,7 +11,7 @@ echo   /_____/ /_/    /___/_/ /_/____/\__/\__,_/_/_/\___/_/     [0m
 echo.
 echo [33m==============================================================[36m
 echo.
-echo Dev Tools Installer - Version 1.12
+echo Dev Tools Installer - Version 1.2
 echo Made by NitTwit_   
 echo.               
 echo [33m==============================================================[36m
@@ -54,6 +54,26 @@ winget install --id Git.Git
     REM Display a completion message for Git installation
             echo.
   echo Git installation completed successfully.
+  echo.
+  )
+) else (
+  echo.
+)
+
+REM Ask the user if they want to install GitHub Desktop
+set /p "GitHub=[36mDo you want to install GitHub Desktop? (y/n): "
+if /i "%GitHub%"=="y" (
+  echo [36mInstalling GitHub Desktop...
+  echo.
+winget install -e --id GitHub.GitHubDesktop 
+  if %errorlevel% neq 0 (
+            echo.
+    echo Failed to install GitHub Desktop.
+    echo.
+  ) else (
+    REM Display a completion message for GitHub Desktop installation
+            echo.
+  echo GitHub Desktop installation completed successfully.
   echo.
   )
 ) else (
@@ -119,6 +139,45 @@ if /i "%dockerChoice%"=="y" (
     echo.
 )
 
+REM Ask the user if they wish to install Docker Desktop
+set /p "jdk=[36mDo you want to install JDK 18? (y/n): "
+if /i "%jdk%"=="y" (
+    echo [36mInstalling JDK...
+    echo.
+winget install -e --id Oracle.JDK.18   
+if %errorlevel% neq 0 (
+              echo.
+        echo Failed to install JDK.
+        echo.
+    ) else (
+      REM Display a completion message for JDK installation
+              echo.
+  echo JDK installation completed successfully.
+  echo.
+  )
+) else (
+    echo.
+)
+
+REM Ask the user if they wish to install Discord lol
+set /p "discord=[36mDo you want to install Discord? (y/n): "
+if /i "%discord%"=="y" (
+    echo [36mInstalling Discord...
+    echo.
+winget install -e --id Discord.Discord   
+if %errorlevel% neq 0 (
+              echo.
+        echo Failed to install Discord.
+        echo.
+    ) else (
+      REM Display a completion message for Discord installation
+              echo.
+  echo Discord installation completed successfully.
+  echo.
+  )
+) else (
+    echo.
+)
 echo [33m==============================================================[92m[1m
 echo.
 echo Press any key to exit... [0m
